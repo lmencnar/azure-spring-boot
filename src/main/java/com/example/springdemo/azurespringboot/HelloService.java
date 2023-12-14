@@ -10,9 +10,9 @@ public class HelloService {
 
     public String getMessage(String name) {
 
-        System.getenv().entrySet().stream().forEach(action -> {
-            log.info("env " + action.getKey() + "=" + action.getValue());
-        });
+        System.getenv().entrySet().stream().forEach(action ->
+            log.info("env " + action.getKey() + "=" + action.getValue())
+        );
         return "Hello " + name + "!";
     }
     

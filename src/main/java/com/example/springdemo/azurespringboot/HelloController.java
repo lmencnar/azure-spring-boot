@@ -5,12 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-
 @RestController
 public class HelloController {
 
+    private final HelloService helloService;
+
     @Autowired
-    HelloService helloService;
+    public HelloController(HelloService helloService) {
+        this.helloService = helloService;
+    }
 
     @PostMapping(value="/hello")
     public HelloResponse helloName(@RequestBody HelloRequest request) {
@@ -20,6 +23,4 @@ public class HelloController {
 
         return response;
     }
-    
-    
 }
