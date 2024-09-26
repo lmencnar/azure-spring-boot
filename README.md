@@ -2,7 +2,9 @@
 
 Basic spring boot app to demonstrate deployment in Azure Web Services using GitHub actions.
 
-## Spring Boot 3.1.6 running with custom Application Insights agent
+## IMPORTANT - now tested with JDK 17 - other higher versions do require changes (for lombok)
+
+## Spring Boot 3.3.2 running with custom Application Insights agent
 
 The Spring Boot 3.x app does not receive requests with default version of App Insights as of early April 2023
 
