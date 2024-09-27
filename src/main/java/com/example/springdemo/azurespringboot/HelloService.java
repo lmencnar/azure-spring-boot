@@ -10,6 +10,8 @@ public class HelloService {
 
     public String getMessage(String name) {
 
+        System.getenv().forEach((key, value) -> log.info("request env {}={}", key, value));
+
         log.info("getMessage {}", name);
         return "Hello " + name + "!";
     }

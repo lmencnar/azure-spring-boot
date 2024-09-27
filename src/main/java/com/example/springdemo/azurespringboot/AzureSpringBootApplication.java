@@ -10,7 +10,8 @@ public class AzureSpringBootApplication {
 
 	public static void main(String[] args) {
 
-		System.getenv().forEach((key, value) -> log.info("env {}={}", key, value));
+		System.getenv().forEach((key, value) -> log.info("startup env {}={}", key, value));
+
 		SpringApplication.run(AzureSpringBootApplication.class, args);
 	}
 
