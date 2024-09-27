@@ -19,8 +19,8 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v4
         with:
-          distribution: 'zulu'
           java-version: '17'
+          distribution: 'microsoft'
 
       - name: Build with Maven
         run: mvn clean install
@@ -37,18 +37,18 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-    
+      
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
           name: java-app
-
+      
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'azure-spring-boot'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BE353C1A14BE4F1A897B4C79CC3B2BEF }}
           package: '*.jar'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_CA5AC65B668546078A3F4FC800C955B3 }}
